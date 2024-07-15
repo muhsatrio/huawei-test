@@ -1,13 +1,9 @@
-from fastapi import APIRouter, HTTPException
+from fastapi import HTTPException
 import requests
-import xmltodict
 from constant import weather_mapping, mapping_province_url
+import xmltodict
 
-router = APIRouter()
-
-@router.get("/")
-def get(province: str, city: str | None = None):
-
+def get(province, city):
     if mapping_province_url[province] is None:
         raise HTTPException(status_code=404, detail="province is Not Found")
 
@@ -20,27 +16,20 @@ def get(province: str, city: str | None = None):
     converted_data = convert_weather_data(parsed_results['data']['forecast']['area'])
 
     if (city is None):
-        return {
-            "datas": converted_data
-        }
+        return converted_data
 
     for data in converted_data:
         if data['key'] == city:
-            return {
-                "datas": data
-            }
+            return data
         
     raise HTTPException(status_code=404, detail="city is Not Found")
 
-@router.get("/_provinces-key")
 def get_list_provinces():
     result = []
     for province in mapping_province_url:
         result.append(province)
 
-    return {
-        "provinces": result
-    }
+    return result
 
 def convert_weather_data(list_of_area):
     result = []
