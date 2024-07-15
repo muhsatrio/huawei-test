@@ -1,0 +1,84 @@
+{
+	"info": {
+		"_postman_id": "b5363e37-138a-4d20-abcf-d55395207f5f",
+		"name": "Huawei Test",
+		"schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json",
+		"_exporter_id": "36503938"
+	},
+	"item": [
+		{
+			"name": "Get Provinces Key",
+			"request": {
+				"method": "GET",
+				"header": [],
+				"url": {
+					"raw": "{{host}}/weather/_get-list-provinces",
+					"host": [
+						"{{host}}"
+					],
+					"path": [
+						"weather",
+						"_get-list-provinces"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "Get Weather",
+			"request": {
+				"method": "GET",
+				"header": [],
+				"url": {
+					"raw": "{{host}}/weather?province&city",
+					"host": [
+						"{{host}}"
+					],
+					"path": [
+						"weather"
+					],
+					"query": [
+						{
+							"key": "province",
+							"value": null
+						},
+						{
+							"key": "city",
+							"value": null
+						}
+					]
+				}
+			},
+			"response": []
+		}
+	],
+	"event": [
+		{
+			"listen": "prerequest",
+			"script": {
+				"type": "text/javascript",
+				"packages": {},
+				"exec": [
+					""
+				]
+			}
+		},
+		{
+			"listen": "test",
+			"script": {
+				"type": "text/javascript",
+				"packages": {},
+				"exec": [
+					""
+				]
+			}
+		}
+	],
+	"variable": [
+		{
+			"key": "host",
+			"value": "http://localhost:8000",
+			"type": "string"
+		}
+	]
+}
