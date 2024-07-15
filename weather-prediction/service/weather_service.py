@@ -36,7 +36,8 @@ def convert_weather_data(list_of_area):
     for area in list_of_area:
         new_dict = {}
         new_dict['city'] = area['@description']
-        new_dict['key'] = "-".join(area['@description'].lower().split())
+        description = area['@description'].replace(".", "")
+        new_dict['key'] = "-".join(description.lower().split())
         if "parameter" in area:
             for parameter in area['parameter']:
                 if parameter['@id'] == 'weather':
