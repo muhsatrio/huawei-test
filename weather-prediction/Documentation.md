@@ -8,6 +8,10 @@
 3. Run `fastapi dev main.py`
 4. API will run in `http://localhost:8000`
 
+## How to Test
+
+1. Run `pytest`
+
 ## API Documentation
 
 ### Get Provinces Key

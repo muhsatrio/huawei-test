@@ -4,7 +4,7 @@ from constant import weather_mapping, mapping_province_url
 import xmltodict
 
 def get(province, city):
-    if mapping_province_url[province] is None:
+    if province not in mapping_province_url:
         raise HTTPException(status_code=404, detail="province is Not Found")
 
     api_url = mapping_province_url[province]
