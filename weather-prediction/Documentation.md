@@ -16,6 +16,10 @@
 
 ### Get Provinces Key
 
+#### Description
+
+API for inquiry key of provinces as query param input
+
 #### URL
 ```
 GET /weather/_provinces-key
@@ -64,6 +68,10 @@ GET /weather/_provinces-key
 ```
 
 ### Get Weather
+
+#### Description
+
+API for inquiry the detail information about weather and max temperature from inputed province and city
 
 #### URL
 ```
